@@ -59,18 +59,24 @@ export default {
           login: {
             url:
               process.env.NODE_ENV === 'production'
-                ? process.env.API_BASE_URL
-                : process.env.DEV_API_BASE_URL,
+                ? 'https://scg-test-project-server.herokuapp.com/api/admin/login'
+                : 'http://localhost:3000/api/admin/login',
             method: 'post',
             propertyName: 'token',
           },
           logout: {
             url:
               process.env.NODE_ENV === 'production'
-                ? process.env.API_BASE_URL
-                : process.env.DEV_API_BASE_URL,
+                ? 'https://scg-test-project-server.herokuapp.com/api/admin/logout'
+                : 'http://localhost:3000/api/admin/logout',
             method: 'delete',
           },
+          user: {
+            url: process.env.NODE_ENV === 'production'
+            ? 'https://scg-test-project-server.herokuapp.com/api/'
+            : 'http://localhost:3000/api/',
+            methods: 'get'
+          }
         },
       },
     },
