@@ -1,20 +1,22 @@
-# client
+# SCG Test Vending Machine CLIENT
 
 ## Build Setup
 
 ```bash
-# install dependencies
-$ yarn install
+# clone this project to your pc or labtop
+$ git clone https://github.com/Leakageonthelamp/scg-test-project-client.git
 
-# serve with hot reload at localhost:3000
+# install dependencies
+$ yarn install or npm install
+
+# serve with hot reload at localhost:8080 as client website
 $ yarn dev
 
 # build for production and launch server
 $ yarn build
 $ yarn start
 
-# generate static project
-$ yarn generate
+*remark for admin site please go to path /admin and login with
+USERNAME : admin
+PASSWORD : admin1234
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
