@@ -10,7 +10,7 @@ $ git clone https://github.com/Leakageonthelamp/scg-test-project-client.git
 $ yarn install or npm install
 
 # serve with hot reload at localhost:8080 as client website
-$ yarn dev
+$ yarn dev or npm run dev
 
 # build for production and launch server
 $ yarn build
