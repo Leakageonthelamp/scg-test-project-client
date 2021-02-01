@@ -44,9 +44,7 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    proxy: true,
-  },
+  axios: {},
 
   auth: {
     redirect: {
@@ -59,12 +57,18 @@ export default {
         },
         endpoints: {
           login: {
-            url: 'https://scg-test-project-server.herokuapp.com/api/admin/login',
+            url:
+              process.env.NODE_ENV === 'production'
+                ? process.env.API_BASE_URL
+                : process.env.DEV_API_BASE_URL,
             method: 'post',
             propertyName: 'token',
           },
           logout: {
-            url: 'https://scg-test-project-server.herokuapp.com/api/admin/logout',
+            url:
+              process.env.NODE_ENV === 'production'
+                ? process.env.API_BASE_URL
+                : process.env.DEV_API_BASE_URL,
             method: 'delete',
           },
         },
@@ -89,23 +93,6 @@ export default {
       },
     },
   },
-  proxy: {
-    '/api/': {
-      target:
-        process.env.NODE_ENV === 'production'
-          ? process.env.API_BASE_URL
-          : process.env.DEV_API_BASE_URL,
-      changeOrigin: true,
-      logLevel: 'debug',
-      pathRewrite: {
-        '^/api': '/',
-      },
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    },
-  },
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['vue2-google-maps'],

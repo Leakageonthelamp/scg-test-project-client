@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL =
   process.env.NODE_ENV === 'production'
     ? 'https://scg-test-project-server.herokuapp.com/api'
-    : 'https://scg-test-project-server.herokuapp.com/api';
+    : 'http://localhost:3000/api';
 
 const HEADERS = {
   Accept: 'application/json',
