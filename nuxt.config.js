@@ -59,12 +59,12 @@ export default {
         },
         endpoints: {
           login: {
-            url: 'http://localhost:3000/api/admin/login',
+            url: 'https://scg-test-project-server.herokuapp.com/api/admin/login',
             method: 'post',
             propertyName: 'token',
           },
           logout: {
-            url: 'http://localhost:3000/api/admin/logout',
+            url: 'https://scg-test-project-server.herokuapp.com/api/admin/logout',
             method: 'delete',
           },
         },
