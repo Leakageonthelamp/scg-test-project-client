@@ -19,7 +19,7 @@
           <v-hover v-slot="{ hover }">
             <v-card
               :elevation="hover ? 12 : 5"
-     
+              max-width="250"
               :color="machine.status === 'online' ? 'amber darken-2' : 'grey'"
               class="d-flex flex-column" 
             >

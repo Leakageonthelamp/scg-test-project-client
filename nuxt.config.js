@@ -24,9 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "~/plugins/vue2-google-maps", ssr: true  }
-  ],
+  plugins: [{ src: '~/plugins/vue2-google-maps', ssr: true }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -46,7 +44,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: true,
+  },
 
   auth: {
     redirect: {
@@ -89,10 +89,26 @@ export default {
       },
     },
   },
+  proxy: {
+    '/api/': {
+      target:
+        process.env.NODE_ENV === 'production'
+          ? process.env.API_BASE_URL
+          : process.env.DEV_API_BASE_URL,
+      changeOrigin: true,
+      logLevel: 'debug',
+      pathRewrite: {
+        '^/api': '/',
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ["vue2-google-maps"],
-    transpile: [/^vue2-google-maps($|\/)/]
+    vendor: ['vue2-google-maps'],
+    transpile: [/^vue2-google-maps($|\/)/],
   },
 };
